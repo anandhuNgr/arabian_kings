@@ -1,25 +1,39 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import AppRoutes from './routes/AppRoutes';
+import FloatingIcon from './components/FloatingIcon/FloatingIcon';
 import './App.css';
 
-function App() {
+
+const Loader = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="fixed inset-0 bg-white flex items-center justify-center z-50">
+      <div className="loader"></div>
     </div>
   );
-}
+};
+
+const App = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+   
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+
+    
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div className="relative">
+      {loading && <Loader />}
+      <AppRoutes />
+      <div className="fixed bottom-16 right-6">
+        <FloatingIcon />
+      </div>
+    </div>
+  );
+};
 
 export default App;
