@@ -1,29 +1,251 @@
-/* Loader Styles */
-.loader {
-    width: 40px;
-    height: 40px;
-    --c: no-repeat linear-gradient(rgb(255, 0, 0) 0 0);
-    background: var(--c), var(--c), var(--c), var(--c);
-    background-size: 21px 21px;
-    animation: l5 1.5s infinite cubic-bezier(0.3, 1, 0, 1);
+.travel-loader-card__icon {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto;
+}
+
+.travel-loader-card__plane {
+  width: 88px;
+  height: 88px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #D6A84B 0%, #F7E6B8 100%);
+  box-shadow: 0 20px 50px rgba(7, 26, 43, 0.18);
+  font-size: 2rem;
+  animation: travel-bounce 1.3s infinite ease-in-out;
+  z-index: 2;
+}
+
+.travel-loader-card__flight-path {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 180px;
+  height: 80px;
+  transform: translate(-50%, -20%);
+  border-radius: 9999px;
+  border: 1px dashed rgba(7, 26, 43, 0.12);
+}
+
+.travel-loader-card__plane {
+  width: 42px;
+  height: 42px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fff 0%, #F7E6B8 100%);
+  box-shadow: 0 16px 34px rgba(7, 26, 43, 0.15);
+  font-size: 1.85rem;
+  animation: plane-fly 2s infinite ease-in-out;
+  position: absolute;
+  left: 50%;
+  top: 28%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.travel-loader-card__wave {
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 120px;
+  height: 20px;
+  transform: translateX(-50%);
+  background: radial-gradient(circle at 50% 0, rgba(214, 168, 75, 0.15) 20%, transparent 21%), linear-gradient(90deg, rgba(214, 168, 75, 0.2) 0%, rgba(255,255,255,0) 100%);
+  border-radius: 9999px 9999px 0 0;
+  overflow: hidden;
+}
+
+.travel-loader-card__bubble {
+  position: absolute;
+  bottom: 10px;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.55);
+  animation: bubble-rise 2s infinite ease-in-out;
+}
+
+.travel-loader-card__bubble--one {
+  left: 30%;
+  animation-delay: 0s;
+}
+
+.travel-loader-card__bubble--two {
+  left: 60%;
+  animation-delay: 0.6s;
+}
+
+.travel-loader-card__dots {
+  gap: 0.75rem;
+}
+
+.travel-loader-card__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: #D6A84B;
+  opacity: 0.4;
+  animation: dot-pulse 1.5s infinite ease-in-out;
+}
+
+.travel-loader-card__dot--active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.page-transition {
+  min-height: calc(100vh - 120px);
+}
+
+/* NProgress custom styling */
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: #d6a84b;
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
+
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px #d6a84b, 0 0 5px #d6a84b;
+  opacity: 1;
+  transform: rotate(3deg) translate(0px, -4px);
+}
+
+#nprogress .spinner {
+  display: none;
+}
+
+.travel-loader-icon {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(214, 40, 40, 0.08);
+  border-radius: 9999px;
+  box-shadow: 0 30px 80px rgba(7, 26, 43, 0.18);
+}
+
+.page-transition {
+  min-height: calc(100vh - 120px);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+main {
+  opacity: 0;
+  animation: main-content-fade 0.8s ease-in-out forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes main-content-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
   }
-  
-  @keyframes l5 {
-    0% {
-      background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-    }
-    33% {
-      background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-      width: 60px;
-      height: 60px;
-    }
-    66% {
-      background-position: 100% 0, 100% 100%, 0 100%, 0 0;
-      width: 60px;
-      height: 60px;
-    }
-    100% {
-      background-position: 100% 0, 100% 100%, 0 100%, 0 0;
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+.travel-loader-icon__ring {
+  position: absolute;
+  width: 92px;
+  height: 92px;
+  border-radius: 9999px;
+  background: conic-gradient(
+    from 90deg,
+    rgba(214, 40, 40, 0.95) 0deg 24deg,
+    rgba(214, 40, 40, 0.6) 24deg 40deg,
+    rgba(214, 40, 40, 0.25) 40deg 54deg,
+    transparent 54deg 360deg
+  );
+  -webkit-mask: radial-gradient(circle at center, transparent 68%, black 70%);
+          mask: radial-gradient(circle at center, transparent 68%, black 70%);
+  filter: drop-shadow(0 0 12px rgba(214, 40, 40, 0.18));
+  animation: loader-ring-spin 1.8s linear infinite;
+}
+
+.travel-loader-icon__plane {
+  position: relative;
+  z-index: 2;
+  width: 54px;
+  height: 54px;
+  animation: plane-hover 1.6s infinite ease-in-out;
+}
+
+.travel-loader-icon__plane img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@keyframes loader-ring {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes contrail-fade {
+  0%, 100% {
+    opacity: 0.65;
+    transform: rotate(-12deg) translateX(0);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(-12deg) translateX(4px);
+  }
+}
+
+@keyframes plane-hover {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-4px) rotate(8deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-3px) rotate(-8deg);
+  }
+}
+
+@keyframes loader-ring-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
   

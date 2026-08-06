@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../comman/Header';
+import Header from './Header';
 import Footer from './Footer';
 
 const MainLayout = ({ children }) => {

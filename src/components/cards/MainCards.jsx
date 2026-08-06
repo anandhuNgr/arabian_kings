@@ -1,24 +1,15 @@
-import React from "react";
+import React from 'react';
 
 const Card = ({ image, alt, text }) => {
-    return (
-        <div className="relative group w-full shadow-lg overflow-hidden">
-            <img
-                src={image}
-                alt={alt}
-                className="w-full lg:h-[500px] object-cover rounded-lg"
-            />
-            <div
-                className="absolute inset-0 bg-black bg-opacity-20 flex items-end transform translate-y-0 group-hover:translate-y-full transition-transform duration-300 ease-in-out rounded-lg"
-            >
-                <p
-                    className="text-black text-lg font-bold p-3 bg-white w-full text-center rounded-bl-lg rounded-br-lg"
-                >
-                    {text}
-                </p>
-            </div>
-        </div>
-    );
+  return (
+    <div className="group relative w-full overflow-hidden rounded-[1.75rem] shadow-[0_20px_50px_rgba(7,26,43,0.12)]">
+      <img src={image} alt={alt} className="h-72 w-full object-cover transition duration-500 group-hover:scale-105" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#071A2B]/80 via-[#071A2B]/20 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 p-6">
+        <p className="text-lg font-semibold text-white">{text}</p>
+      </div>
+    </div>
+  );
 };
 
 export default Card;
