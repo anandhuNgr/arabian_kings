@@ -97,7 +97,7 @@ export const servicesOverview = [
   {
     title: 'Excursions',
     description: 'Flexible half-day and full-day trips to Dubai, Abu Dhabi, desert safaris and cultural highlights.',
-    image: '/assets/img/dubai/excursion.webp',
+    image: '/assets/img/travelling.webp',
     path: '/services/service2',
   },
   {
